@@ -106,7 +106,7 @@ namespace CSharpExploration
         }
     }
 
-   public record BookRecord(string BookName,string AuthorName)
+   public record BookRecord(string BookName,string AuthorName) //Records... New C# 9 Feature
     {
         public string BookName { get; set; } = BookName;
         public string AuthorName { get; set; } = AuthorName;

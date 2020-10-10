@@ -100,6 +100,7 @@ namespace CSharpExploration
 
         public void Deconstruct(out string bookName, out string authorName)
         {
+
             bookName = this.BookName;
             authorName = this.AuthorName;
         }

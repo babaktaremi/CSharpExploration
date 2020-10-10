@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CSharpExploration
 {
@@ -50,7 +51,7 @@ namespace CSharpExploration
             var sameRecordChangeCheck = b7 == b4; //True
             
 
-            b4 = b4 with { AuthorName = "Peter" }; //Record immutability ! A New Record is set with new Values
+            b4 = b4 with { AuthorName = "Peter" }; //Record immutability ! A New Record is 
 
             (string authorNameTuple, string bookNameTuple) = b4;  // Test Book 3 , Peter
 
@@ -66,15 +67,12 @@ namespace CSharpExploration
 
     public class BookClass : IEquatable<BookClass> // Ordinary Way Without Records
     {
-        public BookClass()
-        {
-
-        }
+       
         
         public string BookName { get; set; }
         public string AuthorName { get; set; }
 
-
+        [JsonConstructor]
         public BookClass(string bookName, string authorName)
         {
             BookName = bookName;
@@ -106,7 +104,7 @@ namespace CSharpExploration
         }
     }
 
-   public record BookRecord(string BookName,string AuthorName) //Records... New C# 9 Feature
+    public record BookRecord(string BookName, string AuthorName) //Records... New C# 9 Feature
     {
         public string BookName { get; set; } = BookName;
         public string AuthorName { get; set; } = AuthorName;
